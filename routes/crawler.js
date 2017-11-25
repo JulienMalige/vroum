@@ -182,8 +182,15 @@ let getSearchParams = function(params) {
 }
 
 module.exports = {
-    
-    getCar: getCar,
-    getCars: getCars
-
-};
+  getCar: getCar,
+  getCars: getCars,
+  getCarFromResponse: getCarFromResponse,
+  getResultsFromResponse: getResultsFromResponse,
+  getNumericField: getNumericField,
+  getCarName: getCarName,
+  getCarBrand: getCarBrand,
+  getCarUrl: getCarUrl,
+  getCarImageUrl: getCarImageUrl,
+  getCarParams: getCarParams,
+  getSearchParams: getSearchParams
+}
