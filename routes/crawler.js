@@ -100,11 +100,8 @@ let getResultsFromResponse = function(body) {
       let cheapCars = foundCars.filter(car => car.price === minPrice);
       let expensiveCars = foundCars.filter(car => car.price === maxPrice);
 
-      let elapsed = perfy.end('request');
-
       return {
         infos : {
-          elapsed : elapsed.time,
           results : foundCars.length,
           maxPrice : maxPrice,
           minPrice : minPrice,
