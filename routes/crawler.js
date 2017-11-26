@@ -167,8 +167,8 @@ let getSearchParams = function(params) {
   if(!model) {
     model = '';
   }
-  if(!region) {
-    region = 'FR';
+  if (!region || region === 'all') {
+    region = 'FR'
   }
 
   return {
