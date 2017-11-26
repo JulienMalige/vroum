@@ -86,7 +86,7 @@ let getResultsFromResponse = function(body) {
         foundCar.brand = getCarBrand($, $(car));
         foundCar.name = getCarName($, $(car));
         foundCar.imageUrl = getCarImageUrl($, $(car));
-        foundCar.location = getNumericField($, $(car), '.dptCont', 'Dpt.');
+        foundCar.location = getDept($, $(car), '.dptCont', 'Dpt.');
         foundCar.year = getNumericField($, $(car), '.fieldYear');
         foundCar.mileage = getNumericField($, $(car), '.fieldMileage', 'km');
         foundCar.price = getNumericField($, $(car), '.fieldPrice', '€');
@@ -110,6 +110,15 @@ let getResultsFromResponse = function(body) {
         },
         cars : foundCars
       };
+}
+
+let getDept = function($, subNode, selector, patternToRemove) {
+  let fieldValue = subNode.find($(selector)).first().text();
+  if(patternToRemove) {
+    fieldValue = fieldValue.replace(patternToRemove, '');
+  }
+
+  return fieldValue.replace(/\s/g, "").trim();
 }
 
 let getNumericField = function($, subNode, selector, patternToRemove) {
