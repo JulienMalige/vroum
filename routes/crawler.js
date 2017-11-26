@@ -156,20 +156,23 @@ let getSearchParams = function(params) {
   let brand = params.brand;
   let model = params.model;
   let maxResults = params.maxResults;
+  let region = params.region;
 
   if(!maxResults) {
     maxResults = DEFAULT_MAX_RESULTS;
   }
-
   if(!brand) {
     brand = DEFAULT_BRAND;
   }
   if(!model) {
     model = '';
   }
+  if(!region) {
+    region = 'FR';
+  }
 
   return {
-    url: `${ROOT_URL}/listing_auto.php?marque=${brand}&modele=${model}`,
+    url: `${ROOT_URL}/listing_auto.php?marque=${brand}&modele=${model}&region=${region}`,
     headers: {
       'Cookie': 'NAPP=' + maxResults
     },
