@@ -7,7 +7,7 @@ let colors = require('colors');
 var perfy = require('perfy');
 var logger = require('./logger');
 
-const ROOT_URL = 'http://www.lacentrale.fr';
+const ROOT_URL = 'https://www.lacentrale.fr';
 const DEFAULT_MAX_RESULTS = 30;
 const DEFAULT_BRAND = 'SKODA';
 
