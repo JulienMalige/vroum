@@ -152,33 +152,22 @@ let getCarParams = function(id) {
   }
 }
 
-let getSearchParams = function(params) {
-  let brand = params.brand;
-  let model = params.model;
-  let maxResults = params.maxResults;
-  let region = params.region;
+let getSearchParams = function (params) {
+  let query = params.query
+  let region = params.region
 
-  if(!maxResults) {
-    maxResults = DEFAULT_MAX_RESULTS;
-  }
-  if(!brand) {
-    brand = DEFAULT_BRAND;
-  }
-  if(!model) {
-    model = '';
-  }
   if (!region || region === 'all') {
     region = 'FR'
   }
+  query.replace(/ /g, '%3A')
 
   return {
-    url: `${ROOT_URL}/listing_auto.php?marque=${brand}&modele=${model}&region=${region}`,
+    url: `${ROOT_URL}/listing?makesModels=${query}&region=${region}`,
     headers: {
       'Cookie': 'NAPP=' + maxResults
     },
     jar: true
   }
-
 }
 
 module.exports = {
